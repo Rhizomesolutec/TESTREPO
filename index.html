@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhizome Solutec | Cultivating Excellence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0A1F44;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(90deg, #0A1F44, #003366);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('network-bg.jpg') center/cover no-repeat;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5rem; color: #00FFFF; }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      border-radius: 5px;
+      background: #00FFFF;
+      color: #0A1F44;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #fff; }
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background: #003366;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-item {
+      display: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #00FFFF;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer {
+      background: #003366;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Rhizome Solutec</h1>
+  <p>Cultivating Excellence in Every Solutions</p>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="typing"></h1>
+    <p>We cultivate excellence in IT, software & network solutions</p>
+    <a href="#services" class="btn">Explore Services</a>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
+</section>
+
+<section id="services" class="fade-in">
+  <h2>Our Services</h2>
+  <div id="servicesCarousel" class="carousel">
+    <div class="carousel-item">Branding & Design</div>
+    <div class="carousel-item">Web Development</div>
+    <div class="carousel-item">Mobile App Development</div>
+    <div class="carousel-item">Digital Marketing</div>
+    <div class="carousel-item">Media & Content Creation</div>
+    <div class="carousel-item">Business Strategy</div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>About Us</h2>
+  <p>At Rhizome, we believe every successful business starts with strong roots. 
+     We provide IT, software, and network solutions that help your business grow.</p>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required><br><br>
+    <input type="email" placeholder="Your Email" required><br><br>
+    <textarea placeholder="Your Message" required></textarea><br><br>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Rhizome Solutec | Cultivating Excellence</p>
+</footer>
+
+<script>
+  // Typing effect
+  const text = "Cultivating Excellence in Every Solutions";
+  let i = 0;
+  function typingEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typingEffect, 100);
+    }
+  }
+  typingEffect();
+
+  // Carousel
+  let index = 0;
+  const items = document.querySelectorAll(".carousel-item");
+  function showCarousel() {
+    items.forEach((item, i) => item.style.display = i === index ? "block" : "none");
+    index = (index + 1) % items.length;
+  }
+  setInterval(showCarousel, 3000);
+  showCarousel();
+
+  // Scroll animations
+  const faders = document.querySelectorAll('.fade-in');
+  window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
